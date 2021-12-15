@@ -1,0 +1,223 @@
+<html>
+
+<head>
+    <title>Table Demo</title>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Datatable cdn -->
+    <link href="media/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="clinic.css">
+
+</head>
+
+<body>
+    <!-- modal for add -->
+    <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="booking" class="section">
+                        <div class="section-center">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h2>ADD NEW MEDICINE</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="booking-form">
+                                        <form onsubmit="addData()" autocomplete="off">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Medicine Name</span>
+                                                        <input class="form-control" type="text" placeholder="Medicine Name" id="MD_Name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Power</span>
+                                                        <input class="form-control" type="text" placeholder="Power" id="MD_Power" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Row</span>
+                                                        <input class="form-control" type="text" placeholder="Row" id="MD_Row" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Column</span>
+                                                        <input class="form-control" type="text" placeholder="Column" id="MD_Column" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-btn">
+                                                        <input type="submit" class="submit-btn" value="ADD RECORD">
+                                                        <!-- <button type="submit" class="submit-btn">ADD RECORD</button> -->
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-md-12">
+                                                    <div class="form-btn">
+                                                        <input type="button" class="submit-btn" value="Delete" onclick="deletedata()">
+                                                        <button type="submit" class="submit-btn">ADD RECORD</button>
+                                                    </div> -->
+                                            </div>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- modal for add  close -->
+    <!-- Modal for edit -->
+    <div class="modal fade" id="Modaledit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="booking" class="section">
+                        <div class="section-center">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h2>ADD NEW MEDICINE</h2>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="booking-form">
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Medicine Name</span>
+                                                        <input class="form-control" type="text" placeholder="Medicine Name" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Power</span>
+                                                        <input class="form-control" type="text" placeholder="Power" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Row</span>
+                                                        <input class="form-control" type="text" placeholder="Row" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <span class="form-label">Column</span>
+                                                        <input class="form-control" type="text" placeholder="Column" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-btn">
+                                                        <button class="submit-btn">Edit Record</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for edit close -->
+    <div class="wrapper">
+
+
+
+
+
+        <div class=" pre-wrap container-fluid p-5">
+            <div class="alert alert-success alert-dismissible fade show text-center">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Muhammad Saeed Ramzi</strong>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center display-1 fw-bolder">Moeed Clinic</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="float-end btn-lg btn-success px-5 border-0 m-2" data-bs-toggle="modal" data-bs-target="#Modal">ADD</button>
+                    <!-- <button class="float-end btn-lg btn-success px-5 border-0 m-2" onclick="showData()">showdata</button> -->
+                </div>
+            </div>
+            <div class="container-fluid mt-4">
+
+                <div class="table-responsive">
+                    <table id="myTable" class="table table-dark py-4 table-hover">
+                        <thead>
+                            <tr>
+                                <th>Medicine Name</th>
+                                <th>Power</th>
+                                <th>Row</th>
+                                <th>Column</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <!-- <tr>
+                                <td>Arnica Montana</td>
+                                <td>200</td>
+                                <td>1</td>
+                                <td>7</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-sm btn-sm btn-primary" onclick="onEdit()" data-bs-toggle="modal" data-bs-target="#Modaledit">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-sm btn-danger" onclick="del()">Delete</button>
+                                    </div>
+                                </td>
+                            </tr> -->
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="js/jquery.js"></script>
+    <script src="media/js/jquery.dataTables.min.js"></script>
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SCRIPTS CLOSE -->
+    <!-- main script -->
+    <script src="js/mainscript.js"></script>
+    <script>
+        showData();
+    </script>
+</body>
+
+</html>
